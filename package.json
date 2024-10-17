@@ -1,7 +1,7 @@
 {
   "$schema": "https://enconvo.com/schemas/extension.json",
   "name": "bot_spanish_teacher",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "Chat with your private spanish teacher",
   "title": "Spanish Teacher",
   "icon": "icon.jpg",
@@ -55,7 +55,7 @@
           "description": "The TTS provider to use.",
           "type": "extension",
           "required": false,
-          "default": "enconvo_mirosoft_tts_provider",
+          "default": "edge_tts_provider",
           "defaultOptions": {
             "voice": "en-US-EmmaMultilingualNeural"
           },
