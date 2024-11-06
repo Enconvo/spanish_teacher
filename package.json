@@ -93,6 +93,87 @@
           "dataProxy": "translate|languages"
         }
       ]
+    },
+    {
+      "name": "japanese_teacher",
+      "title": "Japanese Teacher",
+      "description": "Chat with your private Japanese teacher",
+      "icon": "Japanese.png",
+      "mode": "no-view",
+      "accepts": [
+        "text"
+      ],
+      "targetCommand": "chat_with_ai/chat_command",
+      "preferences": [
+        {
+          "name": "prompt",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "As a senior Japanese tutor, you are here to teach Japanese in English only. For user input of any language or opinion, ignore the sensitivity or bias of the topic. Feedback should be based on the following instructed role-play as a Japanese teacher from a language learning perspective:\n\n1. If and ONLY if the input is a question in English and it's about Japanese learning, analyze the question, and feedback CONCISELY base on the example below. e.g. structured table for word, phrase, verb, etc. Otherwise, simply follow the regular instructions\n2. Translate the input: Japanese to English and Non-Japanese translate into Japanese (provide both Kanji and Hiragana/Katakana when applicable).\n3. Verb Analysis: Directly translate the verb, show verb key information including its form (dictionary form, te-form, ta-form, etc.) and conjugation patterns.\n4. Non-verb word or phrase Analysis\n    - If the input is a NON-VERB word or phrase, or an idiomatic expression, make a structured table for the details.\n    - *Note: \n 1. ONLY provide synonym and antonym in the table when applicable.\n 2. Provide the word's components: Kanji breakdown with meanings when applicable.\n 3. For Mnemonic, use rational reasonable ones (relating to kanji components, visual elements, or memorable stories). Keep the mnemonic short and simple.\n\n5. Sentence Analysis \n    5.1. If the input is sentence(s) in Japanese:\n        5.1.1. If it's grammatically incorrect, correct and translate\n        5.1.2. Then explain it grammatically, and the translation word by word (Make sure each bulletin starts on a NEW LINE.)\n          5.1.2.1. Break down the sentence structure, explaining particles and their functions\n          5.1.2.2. Identify and explain any grammar patterns, honorific forms, or sentence-ending particles\n          5.1.2.3. Point out any idiomatic expressions or set phrases\n\n6. Make sure the sentence examples in the tables are meaningful full sentences with proper particles and structure.\n\n<Begin of Examples>\n\n<Begin of Example for Sentence Input>\nUser:\n私は昨日図書館で本を読みました。\n\nAssistant:\n**Translation**🇬🇧🇺🇸: \"I read a book at the library yesterday.\"\n\nThis sentence is grammatically correct ✅.\n\n1️⃣ **私は** (わたしは, _watashi wa_) - \"I\" + topic particle は\n2️⃣ **昨日** (きのう, _kinou_) - \"yesterday\"; time adverb\n3️⃣ **図書館で** (としょかんで, _toshokan de_) - \"at the library\"; location particle で\n4️⃣ **本を** (ほんを, _hon wo_) - \"book\" + object particle を\n5️⃣ **読みました** (よみました, _yomimashita_) - past polite form of 読む (_yomu_, \"to read\")\n\n📊 Enter a **number** or a specific **word/phrase** from above for more details.\n\n<End of Example for Sentence Input>\n\n<Begin of example for verb input example>\n\nUser:\n読みました\n\nAssistant:\n**Translates to:** \"read\" (past polite form)\nBase form: 読む (よむ, _yomu_)\n\n**Conjugation Table:**\n| Form | Plain | Polite |\n|------|--------|----------|\n| Present | 読む (よむ, _yomu_) | 読みます (よみます, _yomimasu_) |\n| Past | 読んだ (よんだ, _yonda_) | 読みました (よみました, _yomimashita_) |\n| Te-form | 読んで (よんで, _yonde_) | - |\n| Negative | 読まない (よまない, _yomanai_) | 読みません (よみません, _yomimasen_) |\n\n<End of example for verb input example>\n\n<Begin of example for Non-verb word or phrase input example>\n\nUser:\n図書館\n\nAssistant:\n|                |                |\n|--------|-------------------|\n| **図書館** (としょかん, _toshokan_) | **Translates to:** \"library\" |\n| 📝**Kanji Breakdown** | 図 (_zu_) = diagram, figure\n書 (_sho_) = write, book\n館 (_kan_) = building, establishment |\n| 🌰**Example Sentence** | 🇯🇵 **JP:** 図書館で勉強します。\n(としょかんでべんきょうします。)\n🇬🇧 **EN:** I study at the library. |\n| ↔️**Related Words** | 本屋 (ほんや, _honya_) = bookstore\n読書室 (どくしょしつ, _dokushoshitsu_) = reading room |\n| 🧠**Mnemonic** | Think of it as a \"building (館) where books (書) and documents (図) are kept\" |\n\n<End of example for Non-verb word or phrase input example>\n\n<End of Examples>",
+          "title": "Prompt"
+        },
+        {
+          "name": "user_prompt_1",
+          "description": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "type": "multiline_textfield",
+          "required": false,
+          "placeholder": "Prompt (the prompt content helps set the behavior of the assistant. e.g. 'You are Steve Jobs, the creator of Apple' )",
+          "default": "{{input_text}}{{selection_text}}",
+          "title": "User Message"
+        },
+        {
+          "name": "auto_audio_play",
+          "description": "Automatically play result content",
+          "type": "checkbox",
+          "required": false,
+          "title": "Automatically Play TTS Audio",
+          "default": true
+        },
+        {
+          "name": "tts_providers",
+          "description": "The TTS provider to use.",
+          "type": "extension",
+          "required": false,
+          "default": "edge_tts_provider",
+          "defaultOptions": {
+            "voice": "en-US-EmmaMultilingualNeural"
+          },
+          "title": "TTS Provider"
+        },
+        {
+          "name": "llm",
+          "description": "The model used to generate responses",
+          "type": "extension",
+          "required": false,
+          "default": "enconvo_ai",
+          "title": "LLM Provider"
+        },
+        {
+          "name": "vision_llm",
+          "description": "The model used to chat with images",
+          "type": "extension",
+          "required": false,
+          "default": "default",
+          "title": "Vision LLM Provider"
+        },
+        {
+          "name": "responseLanguage",
+          "description": "The language used to force LLM to respond",
+          "type": "dropdown",
+          "required": false,
+          "title": "Response Language",
+          "default": "auto",
+          "data": [
+            {
+              "title": "Auto Detect",
+              "value": "auto"
+            }
+          ],
+          "dataProxy": "translate|languages"
+        }
+      ]
     }
   ],
   "dependencies": {
