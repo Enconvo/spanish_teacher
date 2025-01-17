@@ -19,9 +19,6 @@
       "description": "A comprehensive Spanish language tutor that provides translations, grammar explanations, verb conjugations, and detailed linguistic analysis to help you master Spanish effectively.",
       "icon": "icon.jpg",
       "mode": "no-view",
-      "accepts": [
-        "text"
-      ],
       "targetCommand": "chat_with_ai|chat_command",
       "preferences": [
         {
@@ -46,7 +43,7 @@
     }
   ],
   "devDependencies": {
-    "@enconvo/api": "^0.1.147",
+    "@enconvo/api": "^0.1.161",
     "@types/node": "^18.19.33",
     "eslint": "^8.57.0",
     "prettier": "^2.8.8",
